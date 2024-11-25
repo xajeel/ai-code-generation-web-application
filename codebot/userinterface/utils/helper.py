@@ -16,8 +16,8 @@ def languages():
     lan_lits = sorted(lan_lits)
     return lan_lits
 
-def codecorrect(code, language):
-    api = GET_API_KEY
+def codecorrect(code, language, api_key=GET_API_KEY):
+    api = api_key
     clent = Groq(api_key=api)
     chat = clent.chat.completions.create(
         messages=[
@@ -28,7 +28,7 @@ def codecorrect(code, language):
     respons = chat.choices[0].message.content
     return respons
 
-def codegen(code):
+def codegen(code, api_key=GET_API_KEY):
     api = GET_API_KEY
     clent = Groq(api_key=api)
     chat = clent.chat.completions.create(
