@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img src="{% static 'image.png' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="600" height="400" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">Hi! I'm Muhammad Sajeel</h1>
+      <p class="lead">Welcome to A.I. Coder, an intelligent coding assistant designed to simplify and enhance your development workflow. Created by Muhammad Sajeel, an AI Engineer at Medtronix, this platform integrates advanced AI capabilities to help developers write, test, and refine code with efficiency.</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a href="https://www.linkedin.com/in/msajeel/" target="_blank">
+            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Linkedin</button>
+        </a>
+        <a href="https://github.com/xajeel?tab=repositories" target="_blank">
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Git Hub</button>
+        </a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

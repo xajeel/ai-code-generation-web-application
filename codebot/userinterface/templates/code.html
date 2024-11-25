@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Code History</h1>
+<br>
+{% if past_code %}
+
+{% for i in past_code%}
+
+<p>Q{{i.id}}: {{i.question}}</p>
+
+<pre>
+    <code class = 'language-{{i.language}}'>
+    {{i.answer}}
+    </code>
+</pre>
+<a href="{% url 'delete' i.id %}" class="btn btn-outline-secondary btn-sm" >Delete</a>
+<br><br>
+
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}

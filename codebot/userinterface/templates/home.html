@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+{% if respons %}
+
+<pre>
+    <code class = 'language-{{lang}}'>
+    {{respons}}
+    </code>
+</pre>
+<br>
+<form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+<div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Input Code</label>
+    <textarea class="form-control" name="code" rows="3", placeholder="Write code Here">{{code}}</textarea>
+</div>
+
+<select class="form-select" name="lang" aria-placeholder="Select Language">
+    <option value="Select Language">Select Language</option>
+    {% for lan in lang_list%}
+    <option value="{{lan}}">{{lan}}</option>
+    {% endfor %}
+</select>
+<br>
+<button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
+{% else %}
+
+<pre>
+    <code class = 'language-python'>
+    name = 'sajeel'
+    if name == 'sajeel':
+        print(f'Hello {name}')
+    else:
+        print('Who are you ?')
+    </code>
+</pre>
+<br>
+<form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+<div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Input Code</label>
+    <textarea class="form-control" name="code" rows="3", placeholder="Write code Here"></textarea>
+</div>
+
+<select class="form-select" name="lang" aria-placeholder="Select Language">
+    <option value="Select Language">Select Language</option>
+    {% for lan in lang_list%}
+    <option value="{{lan}}">{{lan}}</option>
+    {% endfor %}
+</select>
+<br>
+<button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
+{% endif %}
+
+
+{% else %}
+
+<div class="col-md-6 offset-md-3">
+    <h1>LogIn</h1>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" name="username">
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" name="password">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-secondary" value="Login">Login</button>
+    </form>
+</div>
+
+{% endif %}
+
+{% endblock %}

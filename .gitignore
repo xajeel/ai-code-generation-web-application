@@ -1,0 +1,15 @@
+
+# Ignore Python virtual environment and dependencies
+codegen/Lib/
+codegen/Scripts/
+*.pyc
+__pycache__/
+
+# Ignore system and editor-specific files
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore other unnecessary files
+*.log
+*.sqlite3
