@@ -1,5 +1,13 @@
 from groq import Groq
+import os
+from dotenv import load_dotenv
+from pathlib import Path
 
+# env_path = Path(__file__).resolve().parent / 'utils' / '.env'
+load_dotenv()
+
+
+GET_API_KEY = os.getenv('API_KEY')
 
 def languages():
     lan = 'markup+css+clike+javascript+c+csharp+cpp+python+ruby+sql'
@@ -9,7 +17,7 @@ def languages():
     return lan_lits
 
 def codecorrect(code, language):
-    api = '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'
+    api = GET_API_KEY
     clent = Groq(api_key=api)
     chat = clent.chat.completions.create(
         messages=[
@@ -21,7 +29,7 @@ def codecorrect(code, language):
     return respons
 
 def codegen(code):
-    api = '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'
+    api = GET_API_KEY
     clent = Groq(api_key=api)
     chat = clent.chat.completions.create(
         messages=[
