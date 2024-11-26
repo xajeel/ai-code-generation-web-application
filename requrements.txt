@@ -1,3 +1,4 @@
 django
 python-dotenv
 groq
+psycopg2-binary
